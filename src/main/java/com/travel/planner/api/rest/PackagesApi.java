@@ -16,42 +16,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.travel.planner.api.model.About;
-import com.travel.planner.api.repo.AboutRepository;
+import com.travel.planner.api.model.Packages;
+import com.travel.planner.api.repo.PackagesRepository;
+
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping(value = "/api")
-public class AboutRest {
-
+public class PackagesApi {
+	
 	@Autowired
-	AboutRepository AboutRepo;
-
-	@GetMapping(value = "/getAbout")
-	public List<About> getAbout() {
-		return AboutRepo.findAll();
+    PackagesRepository packagesRepo;
+	
+	@GetMapping(value = "/getPackages")
+	public List<Packages> getPackages() {
+		return packagesRepo.findAll();
 	}
-
-	@PostMapping(value = "/createAbout")
-	public @Valid About createAbout(@Valid @RequestBody About About) {
-		return AboutRepo.save(About);
+	
+	@PostMapping(value = "/createPackages")
+	public @Valid Packages createEngMovies(@Valid @RequestBody Packages Packages) {
+		return packagesRepo.save(Packages);
 	}
+	
+	@GetMapping("/getPackages/{id}")
+	public Packages getById(@PathVariable(required = true) long id) {
 
-	@GetMapping("/getAbout/{id}")
-	public About getById(@PathVariable(required = true) long id) {
-
-		return AboutRepo.getById(id);
+		return packagesRepo.getById(id);
 	}
-
-	@PutMapping("/updateAbout/{id}")
-	public @Valid About updateAbout(@PathVariable(value = "id") Long Id, @Valid @RequestBody About About) {
-		About updatedNote = AboutRepo.save(About);
+	
+	@PutMapping("/updatePackages/{id}")
+	public @Valid Packages updatePackages(@PathVariable(value = "id") Long Id, @Valid @RequestBody Packages Packages) {
+		 Packages updatedNote = packagesRepo.save(Packages);
 		return updatedNote;
 	}
 
-	@DeleteMapping("/deleteAbout/{id}")
+	@DeleteMapping("/deletePackages/{id}")
 	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long Id) {
-		AboutRepo.deleteById(Id);
+		packagesRepo.deleteById(Id);
 		return ResponseEntity.ok().build();
 	}
 

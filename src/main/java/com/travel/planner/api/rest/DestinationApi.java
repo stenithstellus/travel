@@ -16,44 +16,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.travel.planner.api.model.Packages;
-import com.travel.planner.api.repo.PackagesRepository;
-
+import com.travel.planner.api.model.Destination;
+import com.travel.planner.api.repo.DestinationRepository;
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping(value = "/api")
-public class PackagesRest {
+public class DestinationApi {
 	
 	@Autowired
-    PackagesRepository packagesRepo;
-	
-	@GetMapping(value = "/getPackages")
-	public List<Packages> getPackages() {
-		return packagesRepo.findAll();
-	}
-	
-	@PostMapping(value = "/createPackages")
-	public @Valid Packages createEngMovies(@Valid @RequestBody Packages Packages) {
-		return packagesRepo.save(Packages);
-	}
-	
-	@GetMapping("/getPackages/{id}")
-	public Packages getById(@PathVariable(required = true) long id) {
+	DestinationRepository DestinationRepo;
 
-		return packagesRepo.getById(id);
+	@GetMapping(value = "/getDestination")
+	public List<Destination> getDestination() {
+		return DestinationRepo.findAll();
 	}
-	
-	@PutMapping("/updatePackages/{id}")
-	public @Valid Packages updatePackages(@PathVariable(value = "id") Long Id, @Valid @RequestBody Packages Packages) {
-		 Packages updatedNote = packagesRepo.save(Packages);
+	@PostMapping(value = "/createDestination")
+	public @Valid Destination createDestination(@Valid @RequestBody Destination Destination) {
+		return DestinationRepo.save(Destination);
+	}
+
+	@GetMapping("/getDestination/{id}")
+	public Destination getById(@PathVariable(required = true) long id) {
+
+		return DestinationRepo.getById(id);
+	}
+
+	@PutMapping("/updateDestination/{id}")
+	public @Valid Destination updateDestination(@PathVariable(value = "id") Long Id, @Valid @RequestBody Destination Destination) {
+		Destination updatedNote = DestinationRepo.save(Destination);
 		return updatedNote;
 	}
 
-	@DeleteMapping("/deletePackages/{id}")
+	@DeleteMapping("/deleteDestination/{id}")
 	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long Id) {
-		packagesRepo.deleteById(Id);
+		DestinationRepo.deleteById(Id);
 		return ResponseEntity.ok().build();
 	}
+
 
 }
