@@ -34,8 +34,11 @@ public class PackagesApi {
 	}
 	
 	@PostMapping(value = "/createPackages")
-	public @Valid Packages createEngMovies(@Valid @RequestBody Packages Packages) {
-		return packagesRepo.save(Packages);
+	public @Valid Packages createEngMovies(@Valid @RequestBody Packages packages) {
+		
+		long totalPrice = packages.getAccomodation() + packages.getFood() + packages.getTransportation();
+	    packages.setTotalPrice(totalPrice);
+	    return packagesRepo.save(packages);
 	}
 	
 	@GetMapping("/getPackages/{id}")
