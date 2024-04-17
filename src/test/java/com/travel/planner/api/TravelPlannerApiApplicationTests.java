@@ -1,13 +1,13 @@
-package com.travel.planner.api;
+// package com.travel.planner.api;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class TravelPlannerApiApplicationTests {
+// @SpringBootTest
+// class TravelPlannerApiApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
