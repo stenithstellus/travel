@@ -1,0 +1,60 @@
+<div>
+<table class="table color-bordered-table theme-bordered-table">
+    <thead>
+        <tr>
+         
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let abouts of About">     
+            <td>{{abouts.id}}</td>
+            <td>{{abouts.placeName}}</td>
+            <td>{{abouts.email}}</td>
+            <td>{{abouts.feedback}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <table class="table color-bordered-table theme-bordered-table">
+        <thead>
+            <tr>
+             
+                <th>Id</th>
+                <th>placeName</th>
+                <th>packagesName</th>
+                <th>describition</th>
+                <th>imageUrl</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let destination of Destination">     
+                <td>{{destination.id}}</td>
+                <td>{{destination.placeName}}</td>
+                <td>{{destination.packagesName}}</td>
+                <td>{{destination.describition}}</td>
+                <td>{{destination.imageUrl}}</td>
+            </tr>
+        </tbody>
+      </table>
+</div>

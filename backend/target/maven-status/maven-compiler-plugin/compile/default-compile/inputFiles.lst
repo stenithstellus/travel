@@ -1,0 +1,11 @@
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/rest/PackagesApi.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/SwaggerConfig.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/rest/DestinationApi.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/TravelPlannerApiApplication.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/model/About.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/repo/AboutRepository.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/rest/AboutApi.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/repo/PackagesRepository.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/model/Packages.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/repo/DestinationRepository.java
+/home/stenith123/travel-planner-api/backend/src/main/java/com/travel/planner/api/model/Destination.java

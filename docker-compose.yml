@@ -1,0 +1,58 @@
+version: '3.2'
+services:
+  mysql:
+    container_name: mysql
+    image: mysql/mysql-server:5.7 
+    restart: always
+    environment: 
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    networks:
+      - discovery
+    ports:
+      - '3308:3306'
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "mysql"]
+      timeout: 10s
+      retries: 1
+
+  travel-api:
+    container_name: travel-api-plan
+    hostname: travel-api-service
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    networks:
+      - discovery
+    depends_on:
+      - mysql
+    restart: always
+    healthcheck:
+      test: "curl --fail --silent http://localhost:8080/api/getAbout | grep UP || exit 1"
+    env_file:
+      - .env
+    ports:
+      - '8081:8080'
+    links:
+      - mysql
+
+  travel-api-frontend: 
+     container_name: travel-api-ui
+     hostname: travel-api-frontend
+     build: 
+       context: ./frontend
+       dockerfile: Dockerfile
+     restart: always
+     networks:
+        - discovery
+     depends_on:
+        - travel-api
+     ports:
+       - '4204:4200'
+     links:
+       - mysql
+       - travel-api
+networks:
+  discovery:
